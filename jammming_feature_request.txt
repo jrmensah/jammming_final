@@ -1,0 +1,24 @@
+Design Document Template
+December 14, 2018
+
+Jammming Request Feature Link:
+https://docs.google.com/document/d/1ENv5GmLpOrPqRvhODljg79x7IUZ1sSoOdxVEruB5D3Q/edit?usp=sharing
+
+OBJECTIVE
+The goal of this project is to have the user search for songs, using search features with keyboard
+
+BACKGROUND 
+Jammming app search function is triggered by user that clicks on the search button. To minimize frictions 
+and make it easier and faster for users to retrieve results, search by “Enter” keyboard button should be
+implemented. Users should not have to switch between keyboard and mouse to make a search
+
+TECHNICAL DESIGN
+To implement this function, we should add a new method to the SearchBar component by creating a new method 
+called “enterSearch” that accepts an argument “e”. Within the enterSearch method, a condition should check 
+for e.keyCode === 13. Where keyCode 13 is the return or enter keycode. If true, call this.search() that will
+initialize spotify search. Next step is to bind this method in the constructor with: this.enterSearch = this.enterSearch.bind(this);
+And then we need to assign this method to an event handler in the render method of SearchBar combonent.
+
+CAVEATS
+If our app grows, we need to ensure that no other components are assigned the same keycode.
+
